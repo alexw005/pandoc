@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  pandoc:
+    image: pandoc/core
+    volumes:
+      - .:/data
+    # user: "${UID}:${GID}" # Ensures the container runs with the current user's permissions
+    working_dir: /data
+    command: eletrika.pdf -o outfile.docx
+
+#docker-compose run --rm pandoc
